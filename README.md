@@ -21,6 +21,7 @@ The simulation waveform for the Synchronous FIFO is shown below. The following s
 - Continous write operations were performed until the FIFO became full.
 - Performed valid read operations once data has been written.
 - Verified that `fifo_full` and `fifo_empty` flags updates correctly.
+ ![Image Alt](image_url)
 
 
 
