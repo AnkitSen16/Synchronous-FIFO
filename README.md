@@ -16,6 +16,11 @@ It also consists of a **counter** that keeps track of the number of data entries
 - It decrements when data is read from FIFO.
 - It holds its value when both read and write operations are performed simultaneouly or when neither of the operations are performed.
 This logic ensures the FIFO never underflows or overflows while still allowing reads and writes to occur concurrently whenever it is'nt full or empty.
+## Waveform
+The simulation waveform for the Synchronous FIFO is shown below. The following scenarios are demonstrated:
+- Continous write operations were performed until the FIFO became full.
+- Performed valid read operations once data has been written.
+- Verified that `fifo_full` and `fifo_empty` flags updates correctly.
 
 
 
