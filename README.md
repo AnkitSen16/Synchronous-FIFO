@@ -1,26 +1,22 @@
 # Synchronous-FIFO
 
-# Synchronous FIFO 8‑bit
+## Overview
 
-This project contains the Verilog implementation of an 8‑bit Synchronous FIFO (First‑In‑First‑Out) memory module. The design includes a testbench to simulate and verify the functionality of the FIFO.
+This project contains the Verilog implementation of an 16‑bit Synchronous FIFO (First‑In‑First‑Out) memory module. The design includes a testbench to simulate and verify the functionality of the FIFO.
+The design is parameterized for:
+- FIFO Depth
+- Data Width
+## :hammer_and_wrench: Design Description
 
-## Features
+The **Synchronous FIFO** refers to a FIFO Design where data values are written sequentially into a memory array using a clock signal, and the data values are sequentially read out from the memory array using the same clock signal. It uses a circular buffer structure having two pointers (`rd_ptr` and `wr_ptr`).
+- `rd_ptr` is incremented when a valid read operation is performed
+- `wr_ptr` is incremented when a valid write operation is performed
+It also consists of a **counter** that keeps track of the number of data entries stored in the FIFO.
+- It increments when data is written into FIFO.
+- It decrements when data is read from FIFO.
+- It holds its value when both read and write operations are performed simultaneouly or when neither of the operations are performed.
+This logic ensures the FIFO never underflows or overflows while still allowing reads and writes to occur concurrently whenever it is'nt full or empty.
 
-- 8‑bit data width  
-- Synchronous read and write operations  
-- Full and empty flags  
-- Simulation using Xilinx Vivado  
 
-## Files
 
-- **sync_fifo.v**: Verilog module for the 8‑bit Synchronous FIFO.  
-- **tb.v**: Testbench for the FIFO module.  
-- **tb.tcl**: TCL script for running the simulation.  
-- **xsnapshot.png**: Snapshot of the XSIM simulation.  
 
-## Usage
-
-1. Open Vivado and create a new project.  
-2. Add `sync_fifo.v` and `tb.v` to the project.  
-3. Create a simulation set and include `tb.tcl`.  
-4. Run the simulation and view `xsnapshot.png` for reference.
